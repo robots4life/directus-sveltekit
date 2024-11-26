@@ -1,0 +1,24 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:11.2.1
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      SECRET: "ey4l-tv*n6go-7xmpu1bf8xkfpwtuewc&#y3%-mqj58%g)6rhi"
+      ADMIN_EMAIL: "matthew@lyset.uk"
+      ADMIN_PASSWORD: "Ho"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+      REFRESH_TOKEN_COOKIE_SECURE: "true"
+      REFRESH_TOKEN_COOKIE_SAME_SITE: "lax"
+
+      SESSION_COOKIE_SAME_SECURE: "true"
+      SESSION_COOKIE_SAME_SITE: "lax"
+      CORS_ENABLED: true
+      CORS_ORIGIN: "http://localhost:5173"
