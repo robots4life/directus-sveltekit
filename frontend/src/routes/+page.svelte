@@ -1,9 +1,6 @@
 <script>
 	import { getDirectusInstance } from '$lib/directus.js';
-	import { readMe } from '@directus/sdk';
-	let directus = getDirectusInstance();
-
-	let { data } = $props();
+	const directus = getDirectusInstance();
 </script>
 
 <button
@@ -14,6 +11,6 @@
 	LOGIN
 </button>
 
-<hr />
+<br />
 
 <a href="/login">/login</a>
