@@ -1,4 +1,5 @@
 import { PUBLIC_API_URL } from '$env/static/public';
+console.log('PUBLIC_API_URL : ', PUBLIC_API_URL);
 
 /** @type {import('@sveltejs/kit').HandleFetch} */
 export async function handleFetch({ event, request, fetch }) {
