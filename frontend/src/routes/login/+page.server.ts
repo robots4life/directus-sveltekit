@@ -13,7 +13,7 @@ export const actions = {
 		} catch (err) {
 			console.log('err : ', err);
 
-			// return fail(400, { message: err });
+			return fail(400, { message: err });
 		}
 	}
 } satisfies Actions;

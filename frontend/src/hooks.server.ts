@@ -25,8 +25,9 @@ export async function handleFetch({ event, request, fetch }) {
 		request = new Request(request, {
 			method: request.method,
 			headers,
+			body: request.body,
 			credentials: 'include', // Ensures cookies are included
-			...request
+			duplex: 'half'
 		});
 		request.headers.cookies = event.cookies;
 		console.log('event.cookies : ', event.cookies);
