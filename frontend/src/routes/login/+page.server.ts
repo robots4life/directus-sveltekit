@@ -4,7 +4,7 @@ import { fail, type Actions } from '@sveltejs/kit';
 import * as set_cookie_parser from 'set-cookie-parser';
 
 export const actions = {
-	default: async ({ cookies, fetch, request }) => {
+	login: async ({ cookies, fetch, request }) => {
 		const data = await request.formData();
 		const email = String(data.get('email'));
 		const password = String(data.get('password'));
@@ -60,5 +60,21 @@ export const actions = {
 			console.log('err : ', err);
 			return fail(400, { message: err });
 		}
+	},
+	logout: async ({ cookies, fetch, request }) => {
+		const response = await fetch(PUBLIC_API_URL + '/auth/logout', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				mode: 'session'
+			}),
+			credentials: 'include'
+		});
+
+		console.log('response : ', response);
+
+		cookies.delete('directus_session_token', { path: '/' });
 	}
 } satisfies Actions;

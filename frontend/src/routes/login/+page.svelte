@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+
 	let email = 'admin@example.com';
 	let password = 'pass';
 	export let form;
@@ -9,6 +11,7 @@
 {/if}
 
 <form
+	action="?/login"
 	method="POST"
 	class="flex flex-col gap-6 rounded-xl border-4 border-black bg-white p-8 shadow-lg"
 >
@@ -41,6 +44,20 @@
 		class="mt-4 rounded-xl border-4 border-black bg-white px-6 py-3 text-xl font-semibold transition-transform duration-200 hover:border-gray-800 hover:bg-gray-100 active:scale-95 active:bg-gray-200"
 	>
 		Log in through form handled on Server
+	</button>
+</form>
+
+<form
+	action="?/logout"
+	method="POST"
+	use:enhance
+	class="flex flex-col gap-6 rounded-xl border-4 border-black bg-white p-8 shadow-lg"
+>
+	<button
+		type="submit"
+		class="mt-4 rounded-xl border-4 border-black bg-white px-6 py-3 text-xl font-semibold transition-transform duration-200 hover:border-gray-800 hover:bg-gray-100 active:scale-95 active:bg-gray-200"
+	>
+		Log out through form handled on Server
 	</button>
 </form>
 
