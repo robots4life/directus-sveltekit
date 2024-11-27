@@ -1,5 +1,0 @@
-SDK demo from here
-
-```shell
-https://discord.com/channels/725371605378924594/1121094628037361768/1311011421093494826
-```
