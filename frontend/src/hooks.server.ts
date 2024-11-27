@@ -13,7 +13,7 @@ export async function handleFetch({ event, request, fetch }) {
 		console.log('sessionToken : ', sessionToken);
 		console.log('\n');
 
-		// If a session token exists, add it to the Authorization header
+		// // If a session token exists, add it to the Authorization header
 		const headers = new Headers(request.headers);
 		if (sessionToken) {
 			headers.set('Authorization', `Bearer ${sessionToken}`);
@@ -25,11 +25,14 @@ export async function handleFetch({ event, request, fetch }) {
 		request = new Request(request, {
 			method: request.method,
 			headers,
+			// @ts-ignore-next-line - Types outdated
+			duplex: 'half',
 			body: request.body,
 			credentials: 'include' // Ensures cookies are included
 		});
-		request.headers.cookies = event.cookies;
-		console.log('event.cookies : ', event.cookies);
+		// request.headers.cookies = event.cookies;
+		// console.log('request.headers.cookies : ', request.headers.cookies);
+		// console.log('\n');
 	}
 
 	return fetch(request);

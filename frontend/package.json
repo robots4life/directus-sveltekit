@@ -32,6 +32,8 @@
 	},
 	"dependencies": {
 		"@directus/sdk": "^18.0.0",
-		"install": "^0.13.0"
+		"@types/set-cookie-parser": "^2.4.10",
+		"install": "^0.13.0",
+		"set-cookie-parser": "^2.7.1"
 	}
 }
